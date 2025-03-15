@@ -11,3 +11,13 @@ Project Repo Launched
 
 * [access_log.zip](access_log.zip) Log data in .zip format
 * [assignement.md](assignement.md) Santander Problem Statement (in pt-br)
+
+
+# 1.0.0 - 2025-03-15
+
+Unzips access_logs, loads into spark dataframe, perform operations based on required analysis
+
+## Added
+
+* [web_server_access_log_analysis.py](web_server_access_log_analysis.py) Base solution
+* [requirements.txt](requirements.txt) Requirements for successful run
