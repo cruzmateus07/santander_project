@@ -7,3 +7,8 @@ A Spark solution to parse a standard Web Server Access Log text file into a Spar
 # Requirements
 
 [requirements.txt](requirements.txt)
+
+
+# Change Log
+
+[CHANGELOG.md](CHANGELOG.md)
