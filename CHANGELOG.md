@@ -23,6 +23,15 @@ Unzips access_logs, loads into spark dataframe, perform operations based on requ
 * [requirements.txt](requirements.txt) Requirements for successful run
 
 
+# 1.0.1 - 2025-03-21
+
+Base solution isolated into a folder, to act as it's on format of distribution if needed.
+
+## Changed
+
+* [main.py](main.py) PATCH web_server_access_log_analysis.py is now called main.py
+
+
 # 1.1.0 - 2025-03-21
 
 Docker distribution added, all required files where duplicated to docker folder to act as an isolated distribution if needed.
@@ -45,3 +54,4 @@ Databricks Community Edition Distribution added, all required files where duplic
 * [access_log.zip](/dbx_community_ed/access_log.zip) PATCH Log data in .zip format
 * [web_server_access_log_analysis.py](/dbx_community_ed/web_server_access_log_analysis.py) PATCH Base solution adapted to DBX
 * [dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) PATCH Databricks Unzip Python Notebook Script
+
