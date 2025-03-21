@@ -17,6 +17,22 @@ services:
       - postgres
     command: python main.py
 
+  tests:
+    build: .
+    container_name: spark-log-tests
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DB_HOST=postgres  
+      - DB_NAME=logs_db
+      - DB_USER=postgres_user
+      - DB_PASSWORD=password
+      - TB_NAME=logs_tb
+    depends_on:
+      - postgres
+    command: pytest unit_tests.py
+
   postgres:
     image: postgres:latest
     container_name: postgres-db

@@ -25,8 +25,14 @@ Distributed using Databricks Community Edition
 
 * Copy or import [main.py](/dbx_community_ed/main.py) into Databricks Workspace
 * At line 7, change the access_log_path to the DBFS path you aquired in Step 1, if you uploaded a .txt file. If you uploaded a ZIP file, do nothing.
+* At line 8, you can change the path where the delta table is going to be saved in the data lake
 
-## 4. Crete Cluster:
+## 4. Unit Tests
+
+* Copy or import [unit_tests.py](/dbx_community_ed/unit_tests.py) into Databricks Workspace
+* If you changed the path for the save delta table on step 3, please also alter the path at line 10 of unit_tests.py since this script will base itself on the saved table
+
+## 5. Crete Cluster:
 
 * Go to Compute on the left side bar
 * Create Compute
@@ -34,7 +40,7 @@ Distributed using Databricks Community Edition
 * Driver type should be the Community Optimized, since this is being used on Databricks Community Edition
 * The Cluster should start upon creation, if that's not the case, start the cluster
 
-## 5. Attach Cluster to notebook:
+## 6. Attach Cluster to notebook:
 
 * Go to dbx_unzip notebook you copied/imported to Databricks
 * On the top right, select the cluster you just created that should be already starting, and attach it to the notebook
@@ -46,6 +52,7 @@ Distributed using Databricks Community Edition
 ## Run notebooks:
   * Run all cells, after proper setup, on dbx_unzip notebook
   * After dbx_unzip finishes running completely, go to main.py and run the notebook (if you copied as is, should be one cell, otherwise - run all cells)
+  * Run all cells on unit_tests.py after the main.py finishes running completely
 
 
 # Used Technologies
@@ -62,6 +69,11 @@ The solution provides the analysis of a few indicators for the log file provided
   * Distinct Client IPs
   * How many different days are in the file
   * Request's Volume analysis such as - Total Volume, Max Volume and Min Volume Size, Average Volume Size
+
+Unit tests:
+  * 1 - Test if logs are correctly parsed into structured format
+  * 2 - Test counting distinct client IPs
+  * 3 - Test if the DataFrame contains duplicate entries
 
 An option to save the processed data was provided using the Data Lake integration and following the modeling below:
 

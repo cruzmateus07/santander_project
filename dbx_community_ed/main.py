@@ -47,7 +47,8 @@ web_server_access_table = parsed_log_df \
 
 # Try Saving Parsed Log to Data Lake
 try:
-    web_server_access_table.write.format("delta").mode("overwrite").save(processed_log_delta_path)
+    web_server_access_table.write.format("delta").mode(
+        "overwrite").save(processed_log_delta_path)
     print("Data successfully saved in Data Lake")
 except:
     print(f"Skipping saving in data lake due to error")
