@@ -13,9 +13,13 @@ Distributed using Docker
 
 * Postgres Setup - Save web_server_access_log table (Processed logs)
 
-On [main.py](main.py) at lines 10 to 15, Postgres information need to be provided to properly save the processed logs into it
+On [docker-composer.yml](/docker/docker-composer.yml) change the info for POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD and POSTGRES_TABLE to match your Postgres Service.
 
-If wrong information is provided, the code will successfully run through the analysis, however the table won't be saved.
+
+# Execution
+
+Run the shell command bellow to start everything through Docker:
+docker-compose up --build
 
 
 # Used Technologies

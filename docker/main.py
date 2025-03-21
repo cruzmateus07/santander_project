@@ -6,20 +6,21 @@ import zipfile
 
 
 ## -------------------- Postgres Inputs -------------------- ##
-
-db_name = "<logs_db>"
-db_user = "<postgres>"
-db_password = "<yourpassword>"
-db_host = "localhost"  # Or PostgreSQL Server IP
-db_port = "5432"
-table_name = "web_server_access_log"
+db_name = os.getenv("DB_NAME", "logs_db")
+db_user = os.getenv("DB_USER", "postgres_user")
+db_password = os.getenv("DB_PASSWORD", "password")
+db_host = os.getenv("DB_HOST", "postgres")  # Matches Docker service name
+db_port = os.getenv("DB_PORT", "5432")
+table_name = os.getenv("TB_NAME", "logs_tb")
 
 ## -------------------- Init -------------------- ##
 spark = SparkSession.builder.getOrCreate()
 
-cwd = os.getcwd()
-zip_path = f"{cwd}/access_log.zip"
-extract_path = f"{cwd}/access_log_unzip/"
+zip_path = "/app/logs/access_log.zip"
+extract_path = "/app/logs/extracted/"
+
+# Ensure the extraction directory exists
+os.makedirs(extract_path, exist_ok=True)
 
 # Unzip text file
 with zipfile.ZipFile(zip_path, 'r') as zip_ref:

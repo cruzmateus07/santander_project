@@ -5,7 +5,30 @@ services:
     build: .
     container_name: spark-log-transformer
     volumes:
-      - .:/app
+      - ./logs:/app/logs  
     environment:
       - PYTHONUNBUFFERED=1
+      - DB_HOST=postgres  
+      - DB_NAME=logs_db
+      - DB_USER=postgres_user
+      - DB_PASSWORD=password
+      - TB_NAME=logs_tb
+    depends_on:
+      - postgres
     command: python main.py
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: <logs_db>
+      POSTGRES_USER: <postgres_user>
+      POSTGRES_PASSWORD: <user_password>
+      POSTGRES_TABLE: <logs_tb>
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+volumes:
+  postgres_data:
