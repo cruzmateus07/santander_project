@@ -21,3 +21,15 @@ Unzips access_logs, loads into spark dataframe, perform operations based on requ
 
 * [web_server_access_log_analysis.py](web_server_access_log_analysis.py) Base solution
 * [requirements.txt](requirements.txt) Requirements for successful run
+
+
+# 1.1.0 - 2025-03-21
+
+Docker distribution added, all required files where duplicated to docker folder to act as an isolated distribution.
+
+## Added
+
+* [web_server_access_log_analysis.py](/docker/web_server_access_log_analysis.py) PATCH Base solution
+* [requirements.txt](/docker/requirements.txt) PATCH Requirements for successful run
+* [Dockerfile](/docker/Dockerfile) PATCH Dockerfile for Distribution
+* [docker-composer.yml](/docker/docker-composer.yml) PATCH Docker Composer added (using version 3.9)
