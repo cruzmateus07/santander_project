@@ -14,6 +14,22 @@ This Solution has 3 different distributions available:
 Please, refer to each README.md files in each distribution folder for details on Setup, Requirements and Development.
 
 
+# Current Features
+
+The solution, with 3 different distribution options, provides the analysis of a few indicators for the log file provided such as:
+  * Top 10 Client IPs based on access numbers
+  * Top 6 accessed endpoints (disregarding the ones that are files)
+  * Distinct Client IPs
+  * How many different days are in the file
+  * Request's Volume analysis such as - Total Volume, Max Volume and Min Volume Size, Average Volume Size
+
+For both Docker and Databricks Community Edition distributions, an option to save the processed data was provided.
+
+At Docker, Postgres. At DBX Community Ed., the Delta Lake. However, both tables follow the same modeling below:
+
+[web_server_access_log_modeling](web_server_access_log_modeling.png)
+
+
 # Author's Info
 
 This entire Repository was created and developed by:

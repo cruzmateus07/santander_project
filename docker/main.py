@@ -1,9 +1,18 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, col, date_format, max, min, regexp_extract, row_number, split, sum, to_date, when
+from pyspark.sql.functions import avg, col, concat_ws, current_timestamp, date_format, max, md5, min, regexp_extract, row_number, split, sum, to_date, when
 from pyspark.sql.window import Window
 import os
 import zipfile
 
+
+## -------------------- Postgres Inputs -------------------- ##
+
+db_name = "<logs_db>"
+db_user = "<postgres>"
+db_password = "<yourpassword>"
+db_host = "localhost"  # Or PostgreSQL Server IP
+db_port = "5432"
+table_name = "web_server_access_log"
 
 ## -------------------- Init -------------------- ##
 spark = SparkSession.builder.getOrCreate()
@@ -49,6 +58,25 @@ log_df = parsed_log_df \
     ) \
     .withColumn("day_of_week", date_format("date", "EEEE")) \
     .cache()
+
+# Adding control columns to parsed_log_df for saving purposes
+web_server_access_table = parsed_log_df \
+    .withColumn("hash_id", md5(concat_ws("", col("ip_address"), col("timestamp")))) \
+    .withColumn("meta$ingested_on", current_timestamp())
+
+# Try Saving Parsed Log to PostgreSQL
+try:
+    jdbc_url = f"jdbc:postgresql://{db_host}:{db_port}/{db_name}"
+    properties = {
+        "user": db_user,
+        "password": db_password,
+        "driver": "org.postgresql.Driver"
+    }
+
+    web_server_access_table.write.mode("overwrite").jdbc(jdbc_url, table_name, properties=properties)
+    print("Data successfully saved in PostgreSQL")
+except:
+    print(f"Skipping saving in database due to  error")
 
 ## -------------------- Answers -------------------- ##
 # Create a Window for rank based on count

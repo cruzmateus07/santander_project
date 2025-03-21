@@ -8,4 +8,4 @@ services:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
-    command: python web_server_access_log_analysis.py
+    command: python main.py
