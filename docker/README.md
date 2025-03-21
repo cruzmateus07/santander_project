@@ -6,9 +6,9 @@ Distributed using Docker
 
 # Requirements
 
-[requirements.txt](requirements.txt)
+[requirements.txt](/docker/requirements.txt)
 
 
 # Change Log
 
-[CHANGELOG.md](CHANGELOG.md)
+[CHANGELOG.md](/docker/CHANGELOG.md)

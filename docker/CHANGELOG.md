@@ -11,6 +11,7 @@ Docker Distribution added
 
 ## Added
 
+* [access_log.zip](/docker/access_log.zip) PATCH Log data in .zip format
 * [web_server_access_log_analysis.py](web_server_access_log_analysis.py) PATCH Base solution
 * [requirements.txt](requirements.txt) PATCH Requirements for successful run
 * [Dockerfile](Dockerfile) PATCH Dockerfile for Distribution

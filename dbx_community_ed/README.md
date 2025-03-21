@@ -28,6 +28,7 @@ Distributed using Databricks Community Edition
 * At line 7, change the access_log_path to the DBFS path you aquired in Step 1, if you uploaded a .txt file. If you uploaded a ZIP file, do nothing.
 * Run the script
 
+
 # Change Log
 
-[CHANGELOG.md](CHANGELOG.md)
+[CHANGELOG.md](/dbx_community_ed/CHANGELOG.md)

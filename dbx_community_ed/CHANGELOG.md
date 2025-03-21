@@ -9,5 +9,6 @@ Databricks Community Edition distribution added, all required files where duplic
 
 ## Added
 
+* [access_log.zip](/dbx_community_ed/access_log.zip) PATCH Log data in .zip format
 * [web_server_access_log_analysis.py](/dbx_community_ed/web_server_access_log_analysis.py) PATCH Base solution adapted to DBX
 * [dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) PATCH Databricks Unzip Python Notebook Script
