@@ -11,7 +11,7 @@ Distributed using Docker
 
 # Setup
 
-* Postgres Setup - Save web_server_access_log table (Processed logs)
+## Postgres Setup - Save web_server_access_log table (Processed logs)
 
 On [docker-composer.yml](/docker/docker-composer.yml) change the info for POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD and POSTGRES_TABLE to match your Postgres Service.
 

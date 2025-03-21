@@ -21,29 +21,32 @@ Distributed using Databricks Community Edition
 * Copy or import [dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) file into Databricks Workspace
 * Copy the DBFS path aquired in step 1 on the zip_path variable in the first cell
 
-## 3. Run Access Log Analysis
+## 3. Access Log Analysis
 
 * Copy or import [main.py](/dbx_community_ed/main.py) into Databricks Workspace
 * At line 7, change the access_log_path to the DBFS path you aquired in Step 1, if you uploaded a .txt file. If you uploaded a ZIP file, do nothing.
 
+## 4. Crete Cluster:
+
+* Go to Compute on the left side bar
+* Create Compute
+* Select at least 12.2 LTS for Databricks Runtime Version (Used to develop this code)
+* Driver type should be the Community Optimized, since this is being used on Databricks Community Edition
+* The Cluster should start upon creation, if that's not the case, start the cluster
+
+## 5. Attach Cluster to notebook:
+
+* Go to dbx_unzip notebook you copied/imported to Databricks
+* On the top right, select the cluster you just created that should be already starting, and attach it to the notebook
+* The same process needs to be peformed on main.py later
+
 
 # Execution
 
-* 1. Crete Cluster:
-  * Go to Compute on the left side bar
-  * Create Compute
-  * Select at least 12.2 LTS for Databricks Runtime Version (Used to develop this code)
-  * Driver type should be the Community Optimized, since this is being used on Databricks Community Edition
-  * The Cluster should start upon creation, if that's not the case, start the cluster
-
-* 2. Attach Cluster to notebook:
-  * Go to dbx_unzip notebook you copied/imported to Databricks
-  * On the top right, select the cluster you just created that should be already starting, and attach it to the notebook
-  * The same process needs to be peformed on main.py later
-
-* 3. Run notebooks:
+## Run notebooks:
   * Run all cells, after proper setup, on dbx_unzip notebook
   * After dbx_unzip finishes running completely, go to main.py and run the notebook (if you copied as is, should be one cell, otherwise - run all cells)
+
 
 # Used Technologies
 
