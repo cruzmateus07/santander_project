@@ -9,7 +9,7 @@ Project Repo Launched
 
 ## Added
 
-* [access_log.zip](access_log.zip) Log data in .zip format
+* [base_solution/access_log.zip](/base_solution/access_log.zip) Log data in .zip format
 * [assignement.md](assignement.md) Santander Problem Statement (in pt-br)
 
 
@@ -19,8 +19,8 @@ Unzips access_logs, loads into spark dataframe, perform operations based on requ
 
 ## Added
 
-* [web_server_access_log_analysis.py](web_server_access_log_analysis.py) Base solution
-* [requirements.txt](requirements.txt) Requirements for successful run
+* [base_solution/web_server_access_log_analysis.py](/base_solution/main.py) Base solution
+* [base_solution/requirements.txt](/base_solution/requirements.txt) Requirements for successful run
 
 
 # 1.0.1 - 2025-03-21
@@ -29,7 +29,7 @@ Base solution isolated into a folder, to act as it's on format of distribution i
 
 ## Changed
 
-* [main.py](main.py) PATCH web_server_access_log_analysis.py is now called main.py
+* [base_solution/main.py](/base_solution/main.py) PATCH web_server_access_log_analysis.py is now called main.py
 
 
 # 1.1.0 - 2025-03-21
@@ -38,11 +38,11 @@ Docker distribution added, all required files where duplicated to docker folder 
 
 ## Added
 
-* [access_log.zip](/docker/access_log.zip) PATCH Log data in .zip format
-* [web_server_access_log_analysis.py](/docker/web_server_access_log_analysis.py) PATCH Base solution
-* [requirements.txt](/docker/requirements.txt) PATCH Requirements for successful run
-* [Dockerfile](/docker/Dockerfile) PATCH Dockerfile for Distribution
-* [docker-composer.yml](/docker/docker-composer.yml) PATCH Docker Composer added (using version 3.9)
+* [docker/access_log.zip](/docker/access_log.zip) PATCH Log data in .zip format
+* [docker/web_server_access_log_analysis.py](/docker/main.py) PATCH Base solution
+* [docker/requirements.txt](/docker/requirements.txt) PATCH Requirements for successful run
+* [docker/Dockerfile](/docker/Dockerfile) PATCH Dockerfile for Distribution
+* [docker/docker-composer.yml](/docker/docker-composer.yml) PATCH Docker Composer added (using version 3.9)
 
 
 # 1.2.0 - 2025-03-21
@@ -51,7 +51,21 @@ Databricks Community Edition Distribution added, all required files where duplic
 
 ## Added
 
-* [access_log.zip](/dbx_community_ed/access_log.zip) PATCH Log data in .zip format
-* [web_server_access_log_analysis.py](/dbx_community_ed/web_server_access_log_analysis.py) PATCH Base solution adapted to DBX
-* [dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) PATCH Databricks Unzip Python Notebook Script
+* [dbx_community_ed/access_log.zip](/dbx_community_ed/access_log.zip) PATCH Log data in .zip format
+* [dbx_community_ed/web_server_access_log_analysis.py](/dbx_community_ed/web_server_access_log_analysis.py) PATCH Base solution adapted to DBX
+* [dbx_community_ed/dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) PATCH Databricks Unzip Python Notebook Script
 
+
+# 1.2.1 - 2025-03-21
+
+Processed Logs Modeling Proposal added (Solution for both Docker and DBX Community Ed. distributions).
+
+On Docker Distribution, logic to save processed logs into Postgres table added - following the proposed and presented modeling at [README.md](/docker/README.md)
+
+## Added
+
+* [web_server_access_log_modeling](web_server_access_log_modeling.png) PATCH Processed Logs Modeling representation
+
+## Changed
+
+* [docker/main.py](/docker/main.py) PATCH web_server_access_log_analysis.py renamed to main.py | Saving processed dataframe to Postgres logic added
