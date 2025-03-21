@@ -23,9 +23,16 @@ The solution, with 3 different distribution options, provides the analysis of a 
   * How many different days are in the file
   * Request's Volume analysis such as - Total Volume, Max Volume and Min Volume Size, Average Volume Size
 
+Unit tests:
+  * 1 - Test if logs are correctly parsed into structured format
+  * 2 - Test counting distinct client IPs
+  * 3 - Test if the DataFrame contains duplicate entries
+
 For both Docker and Databricks Community Edition distributions, an option to save the processed data was provided.
 
-At Docker, Postgres. At DBX Community Ed., the Delta Lake. However, both tables follow the same modeling below:
+At Docker, Postgres. At DBX Community Ed., the Delta Lake. 
+
+However, both tables follow the same modeling below:
 
 [web_server_access_log_modeling](web_server_access_log_modeling.png)
 

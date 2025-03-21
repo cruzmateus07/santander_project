@@ -74,7 +74,8 @@ try:
         "driver": "org.postgresql.Driver"
     }
 
-    web_server_access_table.write.mode("overwrite").jdbc(jdbc_url, table_name, properties=properties)
+    web_server_access_table.write.mode("overwrite").jdbc(
+        jdbc_url, table_name, properties=properties)
     print("Data successfully saved in PostgreSQL")
 except:
     print(f"Skipping saving in database due to  error")

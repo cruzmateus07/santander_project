@@ -21,3 +21,12 @@ Logic to save processed log data into the data lake, following the provided mode
 ## Changed
 
 * [main.py](/dbx_community_ed/main.py) PATCH Renamed web_server_access_log_analysis.py to main.py | Added try logic for saving the processed data in the data lake
+
+
+# 1.2.0 - 2025-03-21
+
+Unit Tests added to Databricks Community Edition Distributed Solution
+
+## Added
+
+* [unit_tests.py](/dbx_community_ed/unit_tests.py) PATCH Unit tests for Web Server Access Log Analysis

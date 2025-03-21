@@ -41,6 +41,11 @@ The solution provides the analysis of a few indicators for the log file provided
   * How many different days are in the file
   * Request's Volume analysis such as - Total Volume, Max Volume and Min Volume Size, Average Volume Size
 
+Unit tests:
+  * 1 - Test if logs are correctly parsed into structured format
+  * 2 - Test counting distinct client IPs
+  * 3 - Test if the DataFrame contains duplicate entries
+
 An option to save the processed data was provided using Postgres and following the modeling below:
 
 [web_server_access_log_modeling](web_server_access_log_modeling.png)
