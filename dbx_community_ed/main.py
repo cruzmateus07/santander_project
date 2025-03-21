@@ -1,10 +1,11 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, col, date_format, max, min, regexp_extract, row_number, split, sum, to_date, when
+from pyspark.sql.functions import avg, col, concat_ws, current_timestamp, date_format, max, md5, min, regexp_extract, row_number, split, sum, to_date, when
 from pyspark.sql.window import Window
 
 
 ## -------------------- Init -------------------- ##
 access_log_path = 'dbfs:/FileStore/access_log.txt'
+processed_log_delta_path = 'dbfs:/mnt/web_server_access_log'
 
 spark = SparkSession.builder.getOrCreate()
 raw_log_df = spark.read.text(access_log_path)
@@ -38,6 +39,19 @@ log_df = parsed_log_df \
     ) \
     .withColumn("day_of_week", date_format("date", "EEEE")) \
     .cache()
+
+# Adding control columns to parsed_log_df for saving purposes
+web_server_access_table = parsed_log_df \
+    .withColumn("hash_id", md5(concat_ws("", col("ip_address"), col("timestamp")))) \
+    .withColumn("meta$ingested_on", current_timestamp())
+
+# Try Saving Parsed Log to Data Lake
+try:
+    web_server_access_table.write.format("delta").mode("overwrite").save(processed_log_delta_path)
+    print("Data successfully saved in Data Lake")
+except:
+    print(f"Skipping saving in data lake due to error")
+
 
 ## -------------------- Answers -------------------- ##
 # Create a Window for rank based on count

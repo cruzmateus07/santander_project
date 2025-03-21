@@ -52,7 +52,7 @@ Databricks Community Edition Distribution added, all required files where duplic
 ## Added
 
 * [dbx_community_ed/access_log.zip](/dbx_community_ed/access_log.zip) PATCH Log data in .zip format
-* [dbx_community_ed/web_server_access_log_analysis.py](/dbx_community_ed/web_server_access_log_analysis.py) PATCH Base solution adapted to DBX
+* [dbx_community_ed/web_server_access_log_analysis.py](/dbx_community_ed/main.py) PATCH Base solution adapted to DBX
 * [dbx_community_ed/dbx_unzip.ipynb](/dbx_community_ed/dbx_unzip.ipynb) PATCH Databricks Unzip Python Notebook Script
 
 
@@ -69,3 +69,23 @@ On Docker Distribution, logic to save processed logs into Postgres table added -
 ## Changed
 
 * [docker/main.py](/docker/main.py) PATCH web_server_access_log_analysis.py renamed to main.py | Saving processed dataframe to Postgres logic added
+
+
+# 1.2.2 - 2025-03-21
+
+Fix apllied to docker to bring Postgres config to it.
+
+## Changed
+
+* [docker/main.py](/docker/main.py) PATCH Postgres info now inherited from Docker
+* [docker/Dockerfile](/docker/Docker) PATCH Forced access_log.zip into fixed path for extraction
+* [docker/docker-composer.yml](/docker/docker-composer.yml) PATCH Added Postgres config
+
+
+# 1.3.0 - 2025-03-21
+
+Logic to save processed log data into the data lake, following the provided modeling.
+
+## Changed
+
+* [dbx_community_ed/main.py](/dbx_community_ed/main.py) PATCH Renamed web_server_access_log_analysis.py to main.py | Added try logic for saving the processed data in the data lake

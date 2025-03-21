@@ -31,9 +31,10 @@ docker-compose up --build
   * Relational database -> After being properly parsed, the logs were in a structured data format favoring a relational db
   * Cloud-friendly -> Since scability is one of the requirements
 
+
 # Current Features
 
-The solution, with 3 different distribution options, provides the analysis of a few indicators for the log file provided such as:
+The solution provides the analysis of a few indicators for the log file provided such as:
   * Top 10 Client IPs based on access numbers
   * Top 6 accessed endpoints (disregarding the ones that are files)
   * Distinct Client IPs
