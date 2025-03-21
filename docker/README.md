@@ -11,7 +11,7 @@ Distributed using Docker
 
 # Setup
 
-* Postgres Setup - Save web_server_access_log table (Processed logs)
+## Postgres Setup - Save web_server_access_log table (Processed logs)
 
 On [docker-composer.yml](/docker/docker-composer.yml) change the info for POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD and POSTGRES_TABLE to match your Postgres Service.
 
@@ -31,9 +31,10 @@ docker-compose up --build
   * Relational database -> After being properly parsed, the logs were in a structured data format favoring a relational db
   * Cloud-friendly -> Since scability is one of the requirements
 
+
 # Current Features
 
-The solution, with 3 different distribution options, provides the analysis of a few indicators for the log file provided such as:
+The solution provides the analysis of a few indicators for the log file provided such as:
   * Top 10 Client IPs based on access numbers
   * Top 6 accessed endpoints (disregarding the ones that are files)
   * Distinct Client IPs
